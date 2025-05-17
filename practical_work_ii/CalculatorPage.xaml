@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="practical_work_ii.CalculatorPage"
+             Title="Calculator">
+
+    <ScrollView>
+        <VerticalStackLayout Padding="20" Spacing="15">
+            
+            <Entry x:Name="inputEntry"
+                   Placeholder="Enter value"
+                   FontSize="24"
+                   HorizontalOptions="Fill"
+                   Margin="0,0,0,10" />
+
+            <Grid ColumnDefinitions="*,*,*,*"
+                  RowDefinitions="Auto,Auto,Auto,Auto">
+                <Button Text="7" Clicked="OnInputButtonClicked" Grid.Column="0" Grid.Row="0" />
+                <Button Text="8" Clicked="OnInputButtonClicked" Grid.Column="1" Grid.Row="0" />
+                <Button Text="9" Clicked="OnInputButtonClicked" Grid.Column="2" Grid.Row="0" />
+                <Button Text="AC" Clicked="OnClearClicked" Grid.Column="3" Grid.Row="0" BackgroundColor="DarkRed" TextColor="White"/>
+
+                <Button Text="4" Clicked="OnInputButtonClicked" Grid.Column="0" Grid.Row="1" />
+                <Button Text="5" Clicked="OnInputButtonClicked" Grid.Column="1" Grid.Row="1" />
+                <Button Text="6" Clicked="OnInputButtonClicked" Grid.Column="2" Grid.Row="1" />
+                <Button Text="0" Clicked="OnInputButtonClicked" Grid.Column="3" Grid.Row="1" />
+
+                <Button Text="1" Clicked="OnInputButtonClicked" Grid.Column="0" Grid.Row="2" />
+                <Button Text="2" Clicked="OnInputButtonClicked" Grid.Column="1" Grid.Row="2" />
+                <Button Text="3" Clicked="OnInputButtonClicked" Grid.Column="2" Grid.Row="2" />
+                <Button Text="." Clicked="OnInputButtonClicked" Grid.Column="3" Grid.Row="2" />
+
+                <Button Text="A" Clicked="OnInputButtonClicked" Grid.Column="0" Grid.Row="3" />
+                <Button Text="B" Clicked="OnInputButtonClicked" Grid.Column="1" Grid.Row="3" />
+                <Button Text="C" Clicked="OnInputButtonClicked" Grid.Column="2" Grid.Row="3" />
+                <Button Text="D" Clicked="OnInputButtonClicked" Grid.Column="3" Grid.Row="3" />
+
+                <Button Text="E" Clicked="OnInputButtonClicked" Grid.Column="0" Grid.Row="4" />
+                <Button Text="F" Clicked="OnInputButtonClicked" Grid.Column="1" Grid.Row="4" />
+            </Grid>
+
+            <Label Text="Choose a conversion:"
+                   FontAttributes="Bold"
+                   FontSize="18"
+                   Margin="0,20,0,5" />
+
+            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto">
+                <Button Text="DecimalToBinary" Clicked="OnConversionClicked" Grid.Column="0" Grid.Row="0" />
+                <Button Text="DecimalToOctal" Clicked="OnConversionClicked" Grid.Column="1" Grid.Row="0" />
+                <Button Text="DecimalToHexadecimal" Clicked="OnConversionClicked" Grid.Column="0" Grid.Row="1" />
+                <Button Text="DecimalToTwoComplement" Clicked="OnConversionClicked" Grid.Column="1" Grid.Row="1" />
+                <Button Text="BinaryToDecimal" Clicked="OnConversionClicked" Grid.Column="0" Grid.Row="2" />
+                <Button Text="TwoComplementToDecimal" Clicked="OnConversionClicked" Grid.Column="1" Grid.Row="2" />
+                <Button Text="OctalToDecimal" Clicked="OnConversionClicked" Grid.Column="0" Grid.Row="3" />
+                <Button Text="HexadecimalToDecimal" Clicked="OnConversionClicked" Grid.Column="1" Grid.Row="3" />
+            </Grid>
+
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
