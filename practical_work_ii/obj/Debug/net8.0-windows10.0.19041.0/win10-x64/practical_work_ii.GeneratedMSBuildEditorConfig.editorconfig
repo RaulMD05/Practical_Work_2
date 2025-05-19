@@ -37,11 +37,23 @@ build_metadata.AdditionalFiles.ManifestResourceName = practical_work_ii.Calculat
 build_metadata.AdditionalFiles.TargetPath = CalculatorPage.xaml
 build_metadata.AdditionalFiles.RelativePath = CalculatorPage.xaml
 
+[C:/POO/Practical_Work_2/practical_work_ii/ForgotPassword.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = practical_work_ii.ForgotPassword.xaml
+build_metadata.AdditionalFiles.TargetPath = ForgotPassword.xaml
+build_metadata.AdditionalFiles.RelativePath = ForgotPassword.xaml
+
 [C:/POO/Practical_Work_2/practical_work_ii/LoginPage.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml
 build_metadata.AdditionalFiles.ManifestResourceName = practical_work_ii.LoginPage.xaml
 build_metadata.AdditionalFiles.TargetPath = LoginPage.xaml
 build_metadata.AdditionalFiles.RelativePath = LoginPage.xaml
+
+[C:/POO/Practical_Work_2/practical_work_ii/RegisterPage.xaml]
+build_metadata.AdditionalFiles.GenKind = Xaml
+build_metadata.AdditionalFiles.ManifestResourceName = practical_work_ii.RegisterPage.xaml
+build_metadata.AdditionalFiles.TargetPath = RegisterPage.xaml
+build_metadata.AdditionalFiles.RelativePath = RegisterPage.xaml
 
 [C:/POO/Practical_Work_2/practical_work_ii/Resources/Styles/Colors.xaml]
 build_metadata.AdditionalFiles.GenKind = Xaml

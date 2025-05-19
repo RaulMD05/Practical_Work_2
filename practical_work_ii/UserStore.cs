@@ -1,44 +1,85 @@
 using System;
 using System.IO;
+using System.Collections.Generic;
+using System.Text.RegularExpressions;
 
-namespace practical_work_ii;
-
-public class UserStore
+namespace practical_work_ii
 {
-    private readonly string filePath = Path.Combine(FileSystem.AppDataDirectory, "Users.csv");
-
-    public bool RegisterUser(string username, string password)
+    public class UserStore
     {
-        if (string.IsNullOrWhiteSpace(username) || string.IsNullOrWhiteSpace(password))
+    private string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Users.csv");
+
+        public bool RegisterUser(string name, string username, string email, string password, string confirmPassword, bool acceptedPolicy)
+        {
+            // Validaciones básicas
+            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(username) ||
+                string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password) ||
+                string.IsNullOrWhiteSpace(confirmPassword))
+                return false;
+
+            if (!acceptedPolicy) return false;
+
+            if (name == username) return false;
+
+            if (password != confirmPassword) return false;
+
+            if (!IsValidPassword(password)) return false;
+
+            // Leer usuarios
+            List<string> lines = new List<string>();
+
+            if (File.Exists(filePath))
+            {
+                string[] existingLines = File.ReadAllLines(filePath);
+                foreach (string line in existingLines)
+                {
+                    string[] parts = line.Split(';');
+                    if (parts.Length >= 3 && parts[1] == username)
+                        return false; // username ya en uso
+
+                    lines.Add(line); // añadir línea existente
+                }
+            }
+
+            // Agregar nuevo usuario
+            string newUser = $"{name};{username};{email};{password};0";
+            lines.Add(newUser);
+            File.WriteAllLines(filePath, lines.ToArray());
+
+            return true;
+        }
+
+        private bool IsValidPassword(string password)
+        {
+            if (password.Length < 8) return false;
+
+            bool hasUpper = false, hasLower = false, hasDigit = false, hasSymbol = false;
+
+            foreach (char c in password)
+            {
+                if (char.IsUpper(c)) hasUpper = true;
+                else if (char.IsLower(c)) hasLower = true;
+                else if (char.IsDigit(c)) hasDigit = true;
+                else if (!char.IsLetterOrDigit(c)) hasSymbol = true;
+            }
+
+            return hasUpper && hasLower && hasDigit && hasSymbol;
+        }
+
+        public bool LoginUser(string username, string password)
+        {
+            if (!File.Exists(filePath)) return false;
+
+            string[] lines = File.ReadAllLines(filePath);
+
+            foreach (string line in lines)
+            {
+                string[] parts = line.Split(';');
+                if (parts.Length >= 4 && parts[1] == username && parts[3] == password)
+                    return true;
+            }
+
             return false;
-
-        if (!File.Exists(filePath))
-            File.WriteAllText(filePath, "");
-
-        var users = File.ReadAllLines(filePath);
-        foreach (var line in users)
-        {
-            var parts = line.Split(',');
-            if (parts.Length == 2 && parts[0] == username)
-                return false; // user already exists
         }
-
-        File.AppendAllText(filePath, $"{username},{password}\n");
-        return true;
-    }
-
-    public bool LoginUser(string username, string password)
-    {
-        if (!File.Exists(filePath)) return false;
-
-        var users = File.ReadAllLines(filePath);
-        foreach (var line in users)
-        {
-            var parts = line.Split(',');
-            if (parts.Length == 2 && parts[0] == username && parts[1] == password)
-                return true;
-        }
-
-        return false;
     }
 }

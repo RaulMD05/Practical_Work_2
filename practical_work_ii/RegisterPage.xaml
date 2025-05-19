@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="practical_work_ii.RegisterPage"
+             Title="Register">
+
+    <VerticalStackLayout Padding="30" Spacing="20">
+        <Label Text="Register" FontSize="24" HorizontalOptions="Center" />
+
+        <Entry x:Name="nameEntry" Placeholder="Name" />
+        <Entry x:Name="usernameEntry" Placeholder="Username" />
+        <Entry x:Name="emailEntry" Placeholder="Email" />
+        <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" />
+        <Entry x:Name="confirmPasswordEntry" Placeholder="Confirm Password" IsPassword="True" />
+
+        <CheckBox x:Name="policyCheckBox" />
+        <Label Text="I accept the privacy policy" />
+
+        <!-- ✅ Este es el botón que faltaba -->
+        <Button Text="Register" Clicked="OnRegisterClicked" />
+    </VerticalStackLayout>
+</ContentPage>

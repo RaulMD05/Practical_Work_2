@@ -5,24 +5,24 @@ namespace practical_work_ii;
 
 public partial class LoginPage : ContentPage
 {
-    private readonly UserStore _userStore;
+    private readonly UserStore userStore;
 
     public LoginPage()
     {
         InitializeComponent();
-        _userStore = new UserStore();
+        userStore = new UserStore();
 
         var registerTap = new TapGestureRecognizer();
         registerTap.Tapped += async (s, e) =>
         {
-            await DisplayAlert("Info", "Ir a registro (placeholder)", "OK");
+            await Navigation.PushAsync(new RegisterPage());
         };
         registerLabel.GestureRecognizers.Add(registerTap);
 
         var forgotTap = new TapGestureRecognizer();
         forgotTap.Tapped += async (s, e) =>
         {
-            await DisplayAlert("Info", "Recuperar contraseña (placeholder)", "OK");
+            await Navigation.PushAsync(new ForgotPasswordPage());
         };
         forgotLabel.GestureRecognizers.Add(forgotTap);
     }
@@ -38,7 +38,7 @@ public partial class LoginPage : ContentPage
             return;
         }
 
-        if (_userStore.LoginUser(username, password))
+        if (userStore.LoginUser(username, password))
         {
             await DisplayAlert("Éxito", "Inicio de sesión correcto", "OK");
             await Navigation.PushAsync(new CalculatorPage()); // Replace with your actual converter page
