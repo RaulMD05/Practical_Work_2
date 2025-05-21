@@ -5,17 +5,17 @@
              Title="Login">
 
     <VerticalStackLayout Padding="30" Spacing="20">
-        <Label Text="Iniciar Sesión" FontSize="24" HorizontalOptions="Center" />
+        <Label Text="Sign in here" FontSize="24" HorizontalOptions="Center" />
 
         <Entry x:Name="usernameEntry" Placeholder="Usuario" />
         <Entry x:Name="passwordEntry" Placeholder="Contraseña" IsPassword="True" />
 
-        <Button Text="Iniciar Sesión" Clicked="OnLoginClicked" />
+        <Button Text="Sign in" Clicked="OnLoginClicked" />
 
-        <Label x:Name="registerLabel" Text="¿No tienes cuenta? Regístrate"
+        <Label x:Name="registerLabel" Text="YOu don't have an accout? Register here"
                TextColor="Blue" HorizontalOptions="Center" />
 
-        <Label x:Name="forgotLabel" Text="¿Olvidaste tu contraseña?"
+        <Label x:Name="forgotLabel" Text="Did you forgot your password? Recover it here"
                TextColor="Blue" HorizontalOptions="Center" />
     </VerticalStackLayout>
 </ContentPage>

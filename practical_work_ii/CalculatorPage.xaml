@@ -2,22 +2,22 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="practical_work_ii.CalculatorPage"
-             Title="Calculadora"
+             Title="Binary Calculator"
              BackgroundColor="LightGray">
 
     <VerticalStackLayout Padding="20" Spacing="10">
 
-        <Label Text="Calculadora OOP"
+        <Label Text="OOP Calculator"
                FontSize="28"
                FontAttributes="Bold"
                HorizontalOptions="Center"
                TextColor="White"
-               BackgroundColor="#3B5D7A"
+               BackgroundColor="#FF1169B6"
                Padding="10"/>
 
         <Entry x:Name="inputEntry"
                FontSize="24"
-               Placeholder="Introduce el número"
+               Placeholder="Introduce the number you wish to transform"
                HorizontalOptions="FillAndExpand"
                BackgroundColor="White"
                TextColor="Black" />
@@ -75,7 +75,7 @@
         <HorizontalStackLayout Spacing="10" Padding="10,20,10,0">
             <Button Text="OctalToDecimal" Clicked="OnConversionClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="16" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
             <Button Text="HexToDecimal" Clicked="OnConversionClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="16" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
-            <Button Text="Show Info of User" Clicked="OnShowUserInfoClicked" BackgroundColor="#44bb44" TextColor="White" HeightRequest="50" Margin="0,20,0,0"/>
+            <Button Text="Show Info of User" Clicked="OnShowUserInfoClicked" BackgroundColor="#FFD81010" TextColor="Black" HeightRequest="50" Margin="0,20,0,0"/>
         </HorizontalStackLayout>
 
     </VerticalStackLayout>

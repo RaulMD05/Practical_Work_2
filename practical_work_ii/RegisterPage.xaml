@@ -13,8 +13,11 @@
         <Entry x:Name="passwordEntry" Placeholder="Password" IsPassword="True" />
         <Entry x:Name="confirmPasswordEntry" Placeholder="Confirm Password" IsPassword="True" />
 
-        <CheckBox x:Name="policyCheckBox" />
-        <Label Text="I accept the privacy policy" />
+        <HorizontalStackLayout>
+            <CheckBox x:Name="policyCheckBox" />
+            <Label Text="I accept the privacy policy" VerticalOptions="Center" />
+        </HorizontalStackLayout>
+
 
         <!-- ✅ Este es el botón que faltaba -->
         <Button Text="Register" Clicked="OnRegisterClicked" />

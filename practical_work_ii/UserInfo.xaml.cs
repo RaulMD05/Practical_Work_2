@@ -4,14 +4,15 @@ namespace practical_work_ii
 {
     public partial class UserInfo : ContentPage
     {
-        public UserInfo(string name, string username, string password, int operationsCount)
+        public UserInfo(User user)
         {
             InitializeComponent();
 
-            nameLabel.Text = name;
-            usernameLabel.Text = username;
-            passwordLabel.Text = password;
-            operationsCountLabel.Text = operationsCount.ToString();
+            nameLabel.Text = user.Name;
+            usernameLabel.Text = user.Username;
+            emailLabel.Text = user.Email;
+            passwordLabel.Text = user.Password;
+            n_OperationsLabel.Text = user.n_Operations.ToString();
         }
 
         private async void OnBackClicked(object sender, System.EventArgs e)

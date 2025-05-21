@@ -7,12 +7,12 @@ namespace practical_work_ii
 {
     public class UserStore
     {
-    private string filePath = "Files\\Users.csv";
+        private string filePath = "Files\\Users.csv";
 
         public bool RegisterUser(string name, string username, string email, string password, string confirmPassword, bool acceptedPolicy)
         {
             // Validaciones básicas
-            if (name == null || name == "" || username == null || username == "" || email == null || email == "" || password == null || password == "" ||confirmPassword == null || confirmPassword == "")
+            if (name == null || name == "" || username == null || username == "" || email == null || email == "" || password == null || password == "" || confirmPassword == null || confirmPassword == "")
                 return (false);
 
             if (!acceptedPolicy) return (false);
@@ -76,8 +76,8 @@ namespace practical_work_ii
                 if (parts.Length >= 4 && parts[1] == username && parts[3] == password)
                     return (true);
             }
-
             return (false);
         }
+
     }
 }

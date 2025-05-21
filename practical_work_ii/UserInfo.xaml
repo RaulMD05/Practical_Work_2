@@ -2,24 +2,29 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="practical_work_ii.UserInfo"
-             Title="Información del Usuario"
+             Title="Information of the User"
              Padding="20">
 
-    <StackLayout Spacing="15">
+    <ScrollView>
+        <StackLayout Spacing="15">
 
-        <Label Text="Nombre:" FontAttributes="Bold" />
-        <Label x:Name="nameLabel" />
+            <Label Text="Nombre:" FontAttributes="Bold" />
+            <Label x:Name="nameLabel" />
 
-        <Label Text="Usuario:" FontAttributes="Bold" />
-        <Label x:Name="usernameLabel" />
+            <Label Text="Usuario:" FontAttributes="Bold" />
+            <Label x:Name="usernameLabel" />
 
-        <Label Text="Contraseña:" FontAttributes="Bold" />
-        <Label x:Name="passwordLabel" />
+            <Label Text="Email:" FontAttributes="Bold" />
+            <Label x:Name="emailLabel" />
 
-        <Label Text="Operaciones realizadas:" FontAttributes="Bold" />
-        <Label x:Name="operationsCountLabel" />
+            <Label Text="Contraseña:" FontAttributes="Bold" />
+            <Label x:Name="passwordLabel" />
 
-        <Button Text="Volver" Clicked="OnBackClicked" BackgroundColor="#44bb44" TextColor="White"/>
+            <Label Text="Operaciones realizadas:" FontAttributes="Bold" />
+            <Label x:Name="n_OperationsLabel" />
 
-    </StackLayout>
+            <Button Text="Volver" Clicked="OnBackClicked" BackgroundColor="#FFD85213" TextColor="White"/>
+
+        </StackLayout>
+    </ScrollView>
 </ContentPage>

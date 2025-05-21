@@ -8,8 +8,9 @@ namespace practical_work_ii
     public partial class CalculatorPage : ContentPage
     {
         private List<Conversion> conversions;
+        private User currentUser;
 
-        public CalculatorPage()
+        public CalculatorPage(User user)
         {
             InitializeComponent();
 
@@ -24,6 +25,7 @@ namespace practical_work_ii
             this.conversions.Add(new OctaToDecimal("Decimal", "OctalToDecimal"));
             this.conversions.Add(new HexToDecimal("Decimal", "HexToDecimal"));
 
+            this.currentUser = user;
         }
 
         private void OnInputButtonClicked(object sender, EventArgs e)
@@ -82,7 +84,7 @@ namespace practical_work_ii
                     {
                         result = converter.Change(input);
                     }
-
+                    currentUser.n_Operations++;
                     await DisplayAlert("Result", $"{input} → {result}", "OK");
                 }
                 catch (Exception ex)
@@ -95,12 +97,7 @@ namespace practical_work_ii
         private async void OnShowUserInfoClicked(object sender, EventArgs e)
         {
             // Variables con info (o traerlas de donde las tengas)
-            string userName = "Juan Perez";
-            string userUsername = "juanp";
-            string userPassword = "1234";
-            int operationsCount = 0;
-
-            await Navigation.PushAsync(new UserInfo(userName, userUsername, userPassword, operationsCount));
+            await Navigation.PushAsync(new UserInfo(currentUser));
         }
 
     }
