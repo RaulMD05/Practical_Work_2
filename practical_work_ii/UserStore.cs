@@ -7,23 +7,21 @@ namespace practical_work_ii
 {
     public class UserStore
     {
-    private string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Users.csv");
+    private string filePath = "Files\\Users.csv";
 
         public bool RegisterUser(string name, string username, string email, string password, string confirmPassword, bool acceptedPolicy)
         {
             // Validaciones básicas
-            if (string.IsNullOrWhiteSpace(name) || string.IsNullOrWhiteSpace(username) ||
-                string.IsNullOrWhiteSpace(email) || string.IsNullOrWhiteSpace(password) ||
-                string.IsNullOrWhiteSpace(confirmPassword))
-                return false;
+            if (name == null || name == "" || username == null || username == "" || email == null || email == "" || password == null || password == "" ||confirmPassword == null || confirmPassword == "")
+                return (false);
 
-            if (!acceptedPolicy) return false;
+            if (!acceptedPolicy) return (false);
 
-            if (name == username) return false;
+            if (name == username) return (false);
 
-            if (password != confirmPassword) return false;
+            if (password != confirmPassword) return (false);
 
-            if (!IsValidPassword(password)) return false;
+            if (!IsValidPassword(password)) return (false);
 
             // Leer usuarios
             List<string> lines = new List<string>();
@@ -35,7 +33,7 @@ namespace practical_work_ii
                 {
                     string[] parts = line.Split(';');
                     if (parts.Length >= 3 && parts[1] == username)
-                        return false; // username ya en uso
+                        return (false); // username ya en uso
 
                     lines.Add(line); // añadir línea existente
                 }
@@ -46,12 +44,12 @@ namespace practical_work_ii
             lines.Add(newUser);
             File.WriteAllLines(filePath, lines.ToArray());
 
-            return true;
+            return (true);
         }
 
         private bool IsValidPassword(string password)
         {
-            if (password.Length < 8) return false;
+            if (password.Length < 8) return (false);
 
             bool hasUpper = false, hasLower = false, hasDigit = false, hasSymbol = false;
 
@@ -63,7 +61,7 @@ namespace practical_work_ii
                 else if (!char.IsLetterOrDigit(c)) hasSymbol = true;
             }
 
-            return hasUpper && hasLower && hasDigit && hasSymbol;
+            return (hasUpper && hasLower && hasDigit && hasSymbol);
         }
 
         public bool LoginUser(string username, string password)
@@ -76,10 +74,10 @@ namespace practical_work_ii
             {
                 string[] parts = line.Split(';');
                 if (parts.Length >= 4 && parts[1] == username && parts[3] == password)
-                    return true;
+                    return (true);
             }
 
-            return false;
+            return (false);
         }
     }
 }

@@ -6,7 +6,7 @@ namespace practical_work_ii;
 
 public partial class ForgotPasswordPage : ContentPage
 {
-    private string filePath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Users.csv");
+    private string filePath = "Files\\Users.csv";
 
     public ForgotPasswordPage()
     {
@@ -17,7 +17,7 @@ public partial class ForgotPasswordPage : ContentPage
     {
         string email = emailEntry.Text?.Trim();
 
-        if (string.IsNullOrWhiteSpace(email))
+        if (email == null || email == "")
         {
             await DisplayAlert("Error", "Please enter your email.", "OK");
             return;

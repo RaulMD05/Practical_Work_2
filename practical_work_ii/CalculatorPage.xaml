@@ -2,59 +2,81 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="practical_work_ii.CalculatorPage"
-             Title="Calculator">
+             Title="Calculadora"
+             BackgroundColor="LightGray">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="20" Spacing="15">
-            
-            <Entry x:Name="inputEntry"
-                   Placeholder="Enter value"
-                   FontSize="24"
-                   HorizontalOptions="Fill"
-                   Margin="0,0,0,10" />
+    <VerticalStackLayout Padding="20" Spacing="10">
 
-            <Grid ColumnDefinitions="*,*,*,*"
-                  RowDefinitions="Auto,Auto,Auto,Auto">
-                <Button Text="7" Clicked="OnInputButtonClicked" Grid.Column="0" Grid.Row="0" />
-                <Button Text="8" Clicked="OnInputButtonClicked" Grid.Column="1" Grid.Row="0" />
-                <Button Text="9" Clicked="OnInputButtonClicked" Grid.Column="2" Grid.Row="0" />
-                <Button Text="AC" Clicked="OnClearClicked" Grid.Column="3" Grid.Row="0" BackgroundColor="DarkRed" TextColor="White"/>
+        <Label Text="Calculadora OOP"
+               FontSize="28"
+               FontAttributes="Bold"
+               HorizontalOptions="Center"
+               TextColor="White"
+               BackgroundColor="#3B5D7A"
+               Padding="10"/>
 
-                <Button Text="4" Clicked="OnInputButtonClicked" Grid.Column="0" Grid.Row="1" />
-                <Button Text="5" Clicked="OnInputButtonClicked" Grid.Column="1" Grid.Row="1" />
-                <Button Text="6" Clicked="OnInputButtonClicked" Grid.Column="2" Grid.Row="1" />
-                <Button Text="0" Clicked="OnInputButtonClicked" Grid.Column="3" Grid.Row="1" />
+        <Entry x:Name="inputEntry"
+               FontSize="24"
+               Placeholder="Introduce el número"
+               HorizontalOptions="FillAndExpand"
+               BackgroundColor="White"
+               TextColor="Black" />
 
-                <Button Text="1" Clicked="OnInputButtonClicked" Grid.Column="0" Grid.Row="2" />
-                <Button Text="2" Clicked="OnInputButtonClicked" Grid.Column="1" Grid.Row="2" />
-                <Button Text="3" Clicked="OnInputButtonClicked" Grid.Column="2" Grid.Row="2" />
-                <Button Text="." Clicked="OnInputButtonClicked" Grid.Column="3" Grid.Row="2" />
+        <Grid ColumnSpacing="5" RowSpacing="5">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
 
-                <Button Text="A" Clicked="OnInputButtonClicked" Grid.Column="0" Grid.Row="3" />
-                <Button Text="B" Clicked="OnInputButtonClicked" Grid.Column="1" Grid.Row="3" />
-                <Button Text="C" Clicked="OnInputButtonClicked" Grid.Column="2" Grid.Row="3" />
-                <Button Text="D" Clicked="OnInputButtonClicked" Grid.Column="3" Grid.Row="3" />
+            <!-- Números -->
+            <Button Text="7" Grid.Row="0" Grid.Column="0" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="8" Grid.Row="0" Grid.Column="1" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="9" Grid.Row="0" Grid.Column="2" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="DecimalToBinary" Grid.Row="0" Grid.Column="3" Clicked="OnConversionClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="14" FontAttributes="Bold"/>
 
-                <Button Text="E" Clicked="OnInputButtonClicked" Grid.Column="0" Grid.Row="4" />
-                <Button Text="F" Clicked="OnInputButtonClicked" Grid.Column="1" Grid.Row="4" />
-            </Grid>
+            <Button Text="4" Grid.Row="1" Grid.Column="0" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="5" Grid.Row="1" Grid.Column="1" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="6" Grid.Row="1" Grid.Column="2" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="DecimalToTwosComplement" Grid.Row="1" Grid.Column="3" Clicked="OnConversionClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="14" FontAttributes="Bold"/>
 
-            <Label Text="Choose a conversion:"
-                   FontAttributes="Bold"
-                   FontSize="18"
-                   Margin="0,20,0,5" />
+            <Button Text="1" Grid.Row="2" Grid.Column="0" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="2" Grid.Row="2" Grid.Column="1" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="3" Grid.Row="2" Grid.Column="2" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="DecimalToOctal" Grid.Row="2" Grid.Column="3" Clicked="OnConversionClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="14" FontAttributes="Bold"/>
 
-            <Grid ColumnDefinitions="*,*" RowDefinitions="Auto,Auto,Auto,Auto">
-                <Button Text="DecimalToBinary" Clicked="OnConversionClicked" Grid.Column="0" Grid.Row="0" />
-                <Button Text="DecimalToOctal" Clicked="OnConversionClicked" Grid.Column="1" Grid.Row="0" />
-                <Button Text="DecimalToHexadecimal" Clicked="OnConversionClicked" Grid.Column="0" Grid.Row="1" />
-                <Button Text="DecimalToTwoComplement" Clicked="OnConversionClicked" Grid.Column="1" Grid.Row="1" />
-                <Button Text="BinaryToDecimal" Clicked="OnConversionClicked" Grid.Column="0" Grid.Row="2" />
-                <Button Text="TwoComplementToDecimal" Clicked="OnConversionClicked" Grid.Column="1" Grid.Row="2" />
-                <Button Text="OctalToDecimal" Clicked="OnConversionClicked" Grid.Column="0" Grid.Row="3" />
-                <Button Text="HexadecimalToDecimal" Clicked="OnConversionClicked" Grid.Column="1" Grid.Row="3" />
-            </Grid>
+            <Button Text="AC" Grid.Row="3" Grid.Column="0" Clicked="OnClearClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="0" Grid.Row="3" Grid.Column="1" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="-" Grid.Row="3" Grid.Column="2" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="DecimalToHex" Grid.Row="3" Grid.Column="3" Clicked="OnConversionClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="14" FontAttributes="Bold"/>
 
-        </VerticalStackLayout>
-    </ScrollView>
+            <!-- Letras -->
+            <Button Text="A" Grid.Row="4" Grid.Column="0" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="B" Grid.Row="4" Grid.Column="1" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="C" Grid.Row="4" Grid.Column="2" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="BinaryToDecimal" Grid.Row="4" Grid.Column="3" Clicked="OnConversionClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="14" FontAttributes="Bold"/>
+
+            <Button Text="D" Grid.Row="5" Grid.Column="0" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="E" Grid.Row="5" Grid.Column="1" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="F" Grid.Row="5" Grid.Column="2" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
+            <Button Text="TwosComplementToDecimal" Grid.Row="5" Grid.Column="3" Clicked="OnConversionClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="14" FontAttributes="Bold"/>
+        </Grid>
+
+        <!-- Botones adicionales en fila separada -->
+        <HorizontalStackLayout Spacing="10" Padding="10,20,10,0">
+            <Button Text="OctalToDecimal" Clicked="OnConversionClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="16" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
+            <Button Text="HexToDecimal" Clicked="OnConversionClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="16" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
+            <Button Text="Show Info of User" Clicked="OnShowUserInfoClicked" BackgroundColor="#44bb44" TextColor="White" HeightRequest="50" Margin="0,20,0,0"/>
+        </HorizontalStackLayout>
+
+    </VerticalStackLayout>
 </ContentPage>
