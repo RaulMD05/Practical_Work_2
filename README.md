@@ -55,7 +55,7 @@ The Converter calculator was created with the intention of having any conversion
 
 # **UML Diagram**
 
-![UML Diagram](Diagram/uml_diagram.png)
+![UML Diagram](Diagram/ClassDiagram.png)
 
 ## **Solution Design**
 
