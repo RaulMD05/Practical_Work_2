@@ -5,7 +5,7 @@ namespace practical_work_ii;
 
 public partial class RegisterPage : ContentPage
 {
-    private readonly UserStore userStore;
+    private UserStore userStore;
 
     public RegisterPage()
     {
@@ -13,7 +13,7 @@ public partial class RegisterPage : ContentPage
         userStore = new UserStore();
     }
 
-    private async void OnRegisterClicked(object sender, EventArgs e)
+    private async void OnRegisterClicked(object sender, EventArgs e)    //The async is for the awaits
     {
         string name = nameEntry.Text?.Trim();
         string username = usernameEntry.Text?.Trim();

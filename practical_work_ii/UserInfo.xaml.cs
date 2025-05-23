@@ -8,10 +8,10 @@ namespace practical_work_ii
         {
             InitializeComponent();
 
-            nameLabel.Text = user.Name;
-            usernameLabel.Text = user.Username;
-            emailLabel.Text = user.Email;
-            passwordLabel.Text = user.Password;
+            nameLabel.Text = user.name;
+            usernameLabel.Text = user.username;
+            emailLabel.Text = user.email;
+            passwordLabel.Text = user.password;
             n_OperationsLabel.Text = user.n_Operations.ToString();
         }
 

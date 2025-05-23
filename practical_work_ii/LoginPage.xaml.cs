@@ -63,10 +63,10 @@ public partial class LoginPage : ContentPage
             string[] parts = line.Split(';');
             if (parts.Length >= 4 && parts[1] == username && parts[3] == password)
             {
-                loginUser.Name = parts[0];
-                loginUser.Username = parts[1];
-                loginUser.Email = parts[2];
-                loginUser.Password = parts[3];
+                loginUser.name = parts[0];
+                loginUser.username = parts[1];
+                loginUser.email = parts[2];
+                loginUser.password = parts[3];
                 loginUser.n_Operations = Int32.Parse(parts[4]);
             }
 

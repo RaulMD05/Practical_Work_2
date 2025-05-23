@@ -8,10 +8,9 @@ namespace practical_work_ii
     public class UserStore
     {
         private string filePath = "Files\\Users.csv";
-
+        public UserStore(){}
         public bool RegisterUser(string name, string username, string email, string password, string confirmPassword, bool acceptedPolicy)//This registers the info sent, on the csv
         {
-            // Validaciones básicas
             if (name == null || name == "" || username == null || username == "" || email == null || email == "" || password == null || password == "" || confirmPassword == null || confirmPassword == "")
                 return (false);
 
@@ -21,9 +20,8 @@ namespace practical_work_ii
 
             if (password != confirmPassword) return (false);
 
-            if (!IsValidPassword(password)) return (false);
+            if (!IsValidPassword(password)) return (false);//checks if the password is on the correct format as specified
 
-            // Leer usuarios
             List<string> lines = new List<string>();
 
             if (File.Exists(filePath))
@@ -35,13 +33,13 @@ namespace practical_work_ii
                     if (parts.Length >= 3 && parts[1] == username)
                         return (false);
 
-                    lines.Add(line); 
+                    lines.Add(line);//Adds all the lines to an auxiliary list, which is called lines
                 }
             }
 
             string newUser = $"{name};{username};{email};{password};0";
-            lines.Add(newUser);
-            File.WriteAllLines(filePath, lines.ToArray());
+            lines.Add(newUser);//Adds the new user registered to the list
+            File.WriteAllLines(filePath, lines.ToArray());//rewrites all the csv with each line that was before, and the new ones, line by line, converting the strings of the list into arrays, which would be each line
 
             return (true);
         }
