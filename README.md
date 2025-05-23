@@ -55,7 +55,7 @@ The Converter calculator was created with the intention of having any conversion
 
 # **UML Diagram**
 
-![](data:image/png;base64...)
+![UML Diagram](Diagram/uml_diagram.png)
 
 ## **Solution Design**
 
