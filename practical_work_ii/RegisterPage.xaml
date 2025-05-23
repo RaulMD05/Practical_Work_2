@@ -19,7 +19,7 @@
         </HorizontalStackLayout>
 
 
-        <!-- ✅ Este es el botón que faltaba -->
         <Button Text="Register" Clicked="OnRegisterClicked" />
+        <Button Text="Exit" BackgroundColor="DarkRed" TextColor="White" Clicked="OnExitClicked" />
     </VerticalStackLayout>
 </ContentPage>

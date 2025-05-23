@@ -42,7 +42,7 @@ public partial class ForgotPasswordPage : ContentPage
 
                 if (savedEmail == email)
                 {
-                    await DisplayAlert("Your Password", $"Your password is: {savedPassword}", "OK");
+                    await DisplayAlert("Your Password", $"Your password is: {savedPassword}", "OK");//Searchs for the email you introduced in the csv, and shows the password
                     return;
                 }
             }
@@ -50,4 +50,8 @@ public partial class ForgotPasswordPage : ContentPage
 
         await DisplayAlert("Error", "Email not found.", "OK");
     }
+        private void OnExitClicked(object sender, EventArgs e)
+        {
+            Application.Current.Quit();
+        }
 }

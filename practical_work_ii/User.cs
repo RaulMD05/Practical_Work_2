@@ -1,6 +1,6 @@
 namespace practical_work_ii
 {
-    public class User
+    public class User //A class to save the users
     {
         public string Name { get; set; }
         public string Username { get; set; }

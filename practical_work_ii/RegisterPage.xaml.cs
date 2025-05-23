@@ -22,16 +22,20 @@ public partial class RegisterPage : ContentPage
         string confirmPassword = confirmPasswordEntry.Text?.Trim();
         bool acceptedPolicy = policyCheckBox.IsChecked;
 
-        bool success = userStore.RegisterUser(name, username, email, password, confirmPassword, acceptedPolicy);
+        bool success = userStore.RegisterUser(name, username, email, password, confirmPassword, acceptedPolicy);//It tried to register all the info inserted 
 
         if (success)
         {
             await DisplayAlert("Success", "User registered successfully", "OK");
-            await Navigation.PopAsync(); // volver al login
+            await Navigation.PopAsync(); // Go back to the login
         }
         else
         {
             await DisplayAlert("Error", "Check all fields and password requirements", "OK");
         }
+    }
+    private void OnExitClicked(object sender, EventArgs e)
+    {
+        Application.Current.Quit();
     }
 }

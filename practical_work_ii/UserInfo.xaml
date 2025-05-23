@@ -6,8 +6,9 @@
              Padding="20">
 
     <ScrollView>
+        
         <StackLayout Spacing="15">
-
+            
             <Label Text="Nombre:" FontAttributes="Bold" />
             <Label x:Name="nameLabel" />
 
@@ -24,6 +25,8 @@
             <Label x:Name="n_OperationsLabel" />
 
             <Button Text="Volver" Clicked="OnBackClicked" BackgroundColor="#FFD85213" TextColor="White"/>
+            
+            <Button Text="Exit" BackgroundColor="DarkRed" TextColor="White" Clicked="OnExitClicked" />
 
         </StackLayout>
     </ScrollView>

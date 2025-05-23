@@ -9,7 +9,7 @@ namespace practical_work_ii
     {
         private string filePath = "Files\\Users.csv";
 
-        public bool RegisterUser(string name, string username, string email, string password, string confirmPassword, bool acceptedPolicy)
+        public bool RegisterUser(string name, string username, string email, string password, string confirmPassword, bool acceptedPolicy)//This registers the info sent, on the csv
         {
             // Validaciones básicas
             if (name == null || name == "" || username == null || username == "" || email == null || email == "" || password == null || password == "" || confirmPassword == null || confirmPassword == "")
@@ -33,13 +33,12 @@ namespace practical_work_ii
                 {
                     string[] parts = line.Split(';');
                     if (parts.Length >= 3 && parts[1] == username)
-                        return (false); // username ya en uso
+                        return (false);
 
-                    lines.Add(line); // añadir línea existente
+                    lines.Add(line); 
                 }
             }
 
-            // Agregar nuevo usuario
             string newUser = $"{name};{username};{email};{password};0";
             lines.Add(newUser);
             File.WriteAllLines(filePath, lines.ToArray());
@@ -47,7 +46,7 @@ namespace practical_work_ii
             return (true);
         }
 
-        private bool IsValidPassword(string password)
+        private bool IsValidPassword(string password)//Checks if the password has digits, Upper case, Lower case, has a symbol, and has at least 8
         {
             if (password.Length < 8) return (false);
 
@@ -64,7 +63,7 @@ namespace practical_work_ii
             return (hasUpper && hasLower && hasDigit && hasSymbol);
         }
 
-        public bool LoginUser(string username, string password)
+        public bool LoginUser(string username, string password)//Checks the Log In
         {
             if (!File.Exists(filePath)) return false;
 

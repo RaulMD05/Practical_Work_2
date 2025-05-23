@@ -6,21 +6,8 @@
              BackgroundColor="LightGray">
 
     <VerticalStackLayout Padding="20" Spacing="10">
-
-        <Label Text="OOP Calculator"
-               FontSize="28"
-               FontAttributes="Bold"
-               HorizontalOptions="Center"
-               TextColor="White"
-               BackgroundColor="#FF1169B6"
-               Padding="10"/>
-
-        <Entry x:Name="inputEntry"
-               FontSize="24"
-               Placeholder="Introduce the number you wish to transform"
-               HorizontalOptions="FillAndExpand"
-               BackgroundColor="White"
-               TextColor="Black" />
+        <Label Text="OOP Calculator" FontSize="28" FontAttributes="Bold" HorizontalOptions="Center" TextColor="White" BackgroundColor="#FF1169B6" Padding="10"/>
+        <Entry x:Name="inputEntry" FontSize="24" Placeholder="Introduce the number you wish to transform" HorizontalOptions="FillAndExpand" BackgroundColor="White" TextColor="Black" />
 
         <Grid ColumnSpacing="5" RowSpacing="5">
             <Grid.RowDefinitions>
@@ -38,7 +25,7 @@
                 <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
 
-            <!-- Números -->
+            <!-- Numbers of calculator -->
             <Button Text="7" Grid.Row="0" Grid.Column="0" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
             <Button Text="8" Grid.Row="0" Grid.Column="1" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
             <Button Text="9" Grid.Row="0" Grid.Column="2" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
@@ -59,7 +46,7 @@
             <Button Text="-" Grid.Row="3" Grid.Column="2" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
             <Button Text="DecimalToHex" Grid.Row="3" Grid.Column="3" Clicked="OnConversionClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="14" FontAttributes="Bold"/>
 
-            <!-- Letras -->
+            <!-- Letters for Hex -->
             <Button Text="A" Grid.Row="4" Grid.Column="0" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
             <Button Text="B" Grid.Row="4" Grid.Column="1" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
             <Button Text="C" Grid.Row="4" Grid.Column="2" Clicked="OnInputButtonClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="18" FontAttributes="Bold"/>
@@ -71,12 +58,13 @@
             <Button Text="TwosComplementToDecimal" Grid.Row="5" Grid.Column="3" Clicked="OnConversionClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="14" FontAttributes="Bold"/>
         </Grid>
 
-        <!-- Botones adicionales en fila separada -->
+        <!-- Buttons didnt fit on the right -->
         <HorizontalStackLayout Spacing="10" Padding="10,20,10,0">
             <Button Text="OctalToDecimal" Clicked="OnConversionClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="16" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
             <Button Text="HexToDecimal" Clicked="OnConversionClicked" BackgroundColor="#D3D3D3" TextColor="Black" FontSize="16" FontAttributes="Bold" HorizontalOptions="FillAndExpand"/>
             <Button Text="Show Info of User" Clicked="OnShowUserInfoClicked" BackgroundColor="#FFD81010" TextColor="Black" HeightRequest="50" Margin="0,20,0,0"/>
         </HorizontalStackLayout>
+        <Button Text="Exit" BackgroundColor="DarkRed" TextColor="White" Clicked="OnExitClicked" />
 
     </VerticalStackLayout>
 </ContentPage>

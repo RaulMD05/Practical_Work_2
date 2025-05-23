@@ -20,14 +20,14 @@ public partial class LoginPage : ContentPage
         var registerTap = new TapGestureRecognizer();
         registerTap.Tapped += async (s, e) =>
         {
-            await Navigation.PushAsync(new RegisterPage());
+            await Navigation.PushAsync(new RegisterPage());//Sends you to the register page
         };
-        registerLabel.GestureRecognizers.Add(registerTap);
+        registerLabel.GestureRecognizers.Add(registerTap);  
 
         var forgotTap = new TapGestureRecognizer();
         forgotTap.Tapped += async (s, e) =>
         {
-            await Navigation.PushAsync(new ForgotPasswordPage());
+            await Navigation.PushAsync(new ForgotPasswordPage());//Sends you to the Forgot password page
         };
         forgotLabel.GestureRecognizers.Add(forgotTap);
     }
@@ -39,14 +39,14 @@ public partial class LoginPage : ContentPage
 
         if (username == null || username == "" || password == null || password == "")
         {
-            await DisplayAlert("Error", "Por favor, completa ambos campos.", "OK");
+            await DisplayAlert("Error", "Please enter both Username and Password", "OK");
             return;
         }
 
-        if (userStore.LoginUser(username, password))
+        if (userStore.LoginUser(username, password))// Checks the login
         {
-            GetUser(username,password);
-            await DisplayAlert("Éxito", "Inicio de sesión correcto", "OK");
+            GetUser(username, password);//Searchs for the user, to complete all its sections
+            await DisplayAlert("Great!", "Sign-In was correct", "OK");
             await Navigation.PushAsync(new CalculatorPage(loginUser)); // Replace with your actual converter page
         }
         else
@@ -54,22 +54,26 @@ public partial class LoginPage : ContentPage
             await DisplayAlert("Error", "Usuario o contraseña incorrectos.", "OK");
         }
     }
-        public void GetUser(string username, string password)
-        {
-            string[] lines = File.ReadAllLines(filePath);
+    public void GetUser(string username, string password)//Saves all the info of the user on an auxiliar User, to send it to the user info
+    {
+        string[] lines = File.ReadAllLines(filePath);
 
-            foreach (string line in lines)
+        foreach (string line in lines)
+        {
+            string[] parts = line.Split(';');
+            if (parts.Length >= 4 && parts[1] == username && parts[3] == password)
             {
-                string[] parts = line.Split(';');
-                if (parts.Length >= 4 && parts[1] == username && parts[3] == password)
-                {
-                    loginUser.Name = parts[0];
-                    loginUser.Username = parts[1];
-                    loginUser.Email = parts[2];
-                    loginUser.Password = parts[3];
-                    loginUser.n_Operations = Int32.Parse(parts[4]);    
-                }
-                    
+                loginUser.Name = parts[0];
+                loginUser.Username = parts[1];
+                loginUser.Email = parts[2];
+                loginUser.Password = parts[3];
+                loginUser.n_Operations = Int32.Parse(parts[4]);
             }
+
         }
+    }
+    private void OnExitClicked(object sender, EventArgs e)
+    {
+        Application.Current.Quit();//When the exit button is clicked, the program closes
+    }
 }

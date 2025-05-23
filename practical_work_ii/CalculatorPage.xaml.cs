@@ -23,7 +23,7 @@ namespace practical_work_ii
             this.conversions.Add(new BinaryToDecimal("Decimal", "BinaryToDecimal"));
             this.conversions.Add(new TwoComplementToDecimal("Decimal", "TwosComplementToDecimal"));
             this.conversions.Add(new OctaToDecimal("Decimal", "OctalToDecimal"));
-            this.conversions.Add(new HexToDecimal("Decimal", "HexToDecimal"));
+            this.conversions.Add(new HexToDecimal("Decimal", "HexToDecimal"));//Adds all of the conversions, to a list
 
             this.currentUser = user;
         }
@@ -38,20 +38,20 @@ namespace practical_work_ii
 
         private void OnClearClicked(object sender, EventArgs e)
         {
-            inputEntry.Text = string.Empty;
+            inputEntry.Text = string.Empty;//Empties the input
         }
 
         private async void OnConversionClicked(object sender, EventArgs e)
         {
             if (sender is Button button)
             {
-                string name = button.Text;
-                string input = inputEntry.Text?.Trim() ?? "";
+                string name = button.Text;  //gets the name of the conversion the person wants to do
+                string input = inputEntry.Text?.Trim() ?? "";   //Input inserted
 
                 Conversion converter = null;
                 foreach (Conversion c in conversions)
                 {
-                    if (c.GetDefinition() == name)
+                    if (c.GetDefinition() == name)//Searchs the name of the operation he wants to do, and stores it
                     {
                         converter = c;
                         break;
@@ -85,7 +85,7 @@ namespace practical_work_ii
                         result = converter.Change(input);
                     }
                     currentUser.n_Operations++;
-                    await DisplayAlert("Result", $"{input} → {result}", "OK");
+                    await DisplayAlert("Result", $"{input} → {result}", "OK");// Calculates the result, and shows you
                 }
                 catch (Exception ex)
                 {
@@ -96,9 +96,13 @@ namespace practical_work_ii
         }
         private async void OnShowUserInfoClicked(object sender, EventArgs e)
         {
-            // Variables con info (o traerlas de donde las tengas)
-            await Navigation.PushAsync(new UserInfo(currentUser));
+            await Navigation.PushAsync(new UserInfo(currentUser));  //Whenever you click this, it will get you to the User Info Page
         }
+        private void OnExitClicked(object sender, EventArgs e)
+        {
+            Application.Current.Quit();
+        }
+
 
     }
 }
