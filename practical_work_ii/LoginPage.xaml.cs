@@ -51,7 +51,7 @@ public partial class LoginPage : ContentPage
         }
         else
         {
-            await DisplayAlert("Error", "Usuario o contraseña incorrectos.", "OK");
+            await DisplayAlert("Error", "Username or Password are not correct.\nPlease try again", "OK");
         }
     }
     public void GetUser(string username, string password)//Saves all the info of the user on an auxiliar User, to send it to the user info
